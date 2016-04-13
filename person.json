@@ -31,14 +31,14 @@
               "items": {
                 "anyOf": [
                   { "$ref": "#/compoundQuery" },
-                  { "$ref": "definitions.json#" }
+                  { "$ref": "entityDefinitions.json#" }
                 ]
               }
             }
           },
           "additionalProperties": false
         },
-        { "$ref": "definitions.json#" }
+        { "$ref": "entityDefinitions.json#" }
       ]
     }
   }
