@@ -18,7 +18,7 @@
             },
             "role": {
               "type": "string",
-              "description": ""
+              "description": "A current or previous job title."
             },
             "fromDate": {
               "type": "ISO date string",
