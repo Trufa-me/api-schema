@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "StepWeb API DSL - Person",
+  "description": "A DSL definition of StepWeb API's Person endpoint using JSON Schema",
+  "type": "object",
+  "required": ["schemaVersion", "query"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "The schema version used."
+    },
+    "start": {
+      "type": "integer",
+      "description": "Starting index to offset results from."
+    },
+    "count": {
+      "type": "integer",
+      "description": "Maximum number of results to return."
+    },
+    "query": {
+      "type": "object",
+      "description": "Root of query to be searched.",
+      "anyOf": [
+        {
+          "name": "compoundQuery",
+          "id": "compoundQuery",
+          "patternProperties": {
+            "^(AND|OR)$": {
+              "type": "array",
+              "description": "An array of entityQuery or compoundQuery objects. Items can be nested compoundQuery objects.",
+              "items": {
+                "anyOf": [
+                  { "$ref": "#/compoundQuery" },
+                  { "$ref": "definitions.json#" }
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        { "$ref": "definitions.json#" }
+      ]
+    }
+  }
+}
