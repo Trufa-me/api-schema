@@ -1,0 +1,60 @@
+{
+  "anyOf": [
+    {
+      "name": "company",
+      "properties": {
+        "entity": {
+          "type": "string",
+          "enum": ["company"],
+          "description": "Name of the entity to be queried."
+        },
+        "criteria": {
+          "type": "object",
+          "description": "Specific criteria for the company entity.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Company name."
+            },
+            "fromDate": {
+              "type": "ISO date string",
+              "description": "Beginning of date range for the company entity."
+            },
+            "toDate": {
+              "type": "ISO date string",
+              "description": "End of date range for the company entity."
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "education",
+      "properties": {
+        "entity": {
+          "type": "string",
+          "enum": ["education"],
+          "description": "Name of the entity to be queried."
+        },
+        "criteria": {
+          "type": "object",
+          "description": "Specific criteria for the education entity.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Educational institution name."
+            },
+            "fromDate": {
+              "type": "ISO date string",
+              "description": "Beginning of date range for the education entity."
+            },
+            "toDate": {
+              "type": "ISO date string",
+              "description": "End of date range for the education entity."
+            }
+          }
+        }
+      }
+    }
+  ]
+}
