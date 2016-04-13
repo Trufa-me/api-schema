@@ -9,9 +9,9 @@ A DSL definition of StepWeb API using JSON Schema.
   "start": 0,
   "count": 10,
   "query": {
-    "entity": "company",
+    "entity": "experience",
     "criteria": {
-      "name": "My Corporation",
+      "company": "My Corporation",
       "fromDate": "2014-03-15T16:44:53+01:00",
       "toDate": "2016-04-08T16:44:53+01:00"
     }
@@ -27,9 +27,9 @@ A DSL definition of StepWeb API using JSON Schema.
   "query": {
     "AND": [
       {
-        "entity": "company",
+        "entity": "experience",
         "criteria": {
-          "name": "My Corporation",
+          "company": "My Corporation",
           "fromDate": "2014-03-15T16:44:53+01:00",
           "toDate": "2016-04-08T16:44:53+01:00"
         }
@@ -37,7 +37,7 @@ A DSL definition of StepWeb API using JSON Schema.
       {
         "entity": "education",
         "criteria": {
-          "name": "Oxford University"
+          "establishment": "Oxford University"
         }
       }
    ]
@@ -53,15 +53,15 @@ A DSL definition of StepWeb API using JSON Schema.
   "query": {
     "OR": [
       {
-        "entity": "company",
+        "entity": "experience",
         "criteria": {
-          "name": "My Corporation"
+          "company": "My Corporation"
         }
       },
       {
-        "entity": "company",
+        "entity": "experience",
         "criteria": {
-          "name": "ACME"
+          "company": "ACME"
         }
       }
     ]
@@ -77,9 +77,9 @@ A DSL definition of StepWeb API using JSON Schema.
   "query": {
     "OR": [
       {
-        "entity": "company",
+        "entity": "experience",
         "criteria": {
-          "name": "My Corporation",
+          "company": "My Corporation",
           "fromDate": "2014-03-15T16:44:53+01:00",
           "toDate": "2016-04-08T16:44:53+01:00"
         }
@@ -87,15 +87,15 @@ A DSL definition of StepWeb API using JSON Schema.
       {
         "AND": [
           {
-            "entity": "company",
+            "entity": "experience",
             "criteria": {
-              "name": "ACME"
+              "company": "ACME"
             }
           },
           {
             "entity": "education",
             "criteria": {
-              "name": "Oxford University"
+              "establishment": "Oxford University"
             }
           }
         ]

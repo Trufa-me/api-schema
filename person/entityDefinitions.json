@@ -1,28 +1,32 @@
 {
   "anyOf": [
     {
-      "name": "company",
+      "name": "experience",
       "properties": {
         "entity": {
           "type": "string",
-          "enum": ["company"],
+          "enum": ["experience"],
           "description": "Name of the entity to be queried."
         },
         "criteria": {
           "type": "object",
-          "description": "Specific criteria for the company entity.",
+          "description": "Specific criteria for the experience entity.",
           "properties": {
-            "name": {
+            "company": {
               "type": "string",
               "description": "Company name."
             },
+            "role": {
+              "type": "string",
+              "description": ""
+            },
             "fromDate": {
               "type": "ISO date string",
-              "description": "Beginning of date range for the company entity."
+              "description": "Beginning of date range for the experience entity."
             },
             "toDate": {
               "type": "ISO date string",
-              "description": "End of date range for the company entity."
+              "description": "End of date range for the experience entity."
             }
           }
         }
@@ -40,9 +44,9 @@
           "type": "object",
           "description": "Specific criteria for the education entity.",
           "properties": {
-            "name": {
+            "establishment": {
               "type": "string",
-              "description": "Educational institution name."
+              "description": "Educational establishment name."
             },
             "fromDate": {
               "type": "ISO date string",
