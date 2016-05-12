@@ -20,13 +20,33 @@
               "type": "string",
               "description": "A current or previous job title."
             },
-            "fromDate": {
-              "type": "ISO date string",
-              "description": "Beginning of date range for the experience entity."
+            "start": {
+              "type": "object",
+              "description": "The start date of the experience entity.",
+              "properties": {
+                "from": {
+                  "type": "ISO date string",
+                  "description": "From date of start date range for the experience entity."
+                },
+                "to": {
+                  "type": "ISO date string",
+                  "description": "To date of start date range for the experience entity."
+                }
+              }
             },
-            "toDate": {
-              "type": "ISO date string",
-              "description": "End of date range for the experience entity."
+            "end": {
+              "type": "object",
+              "description": "The end date of the experience entity.",
+              "properties": {
+                "from": {
+                  "type": "ISO date string",
+                  "description": "From date of end date range for the experience entity."
+                },
+                "to": {
+                  "type": "ISO date string",
+                  "description": "To date of end date range for the experience entity."
+                }
+              }
             }
           }
         }
