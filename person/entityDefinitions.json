@@ -68,13 +68,33 @@
               "type": "string",
               "description": "Educational establishment name."
             },
-            "fromDate": {
-              "type": "ISO date string",
-              "description": "Beginning of date range for the education entity."
+            "start": {
+              "type": "object",
+              "description": "The start date of the education entity.",
+              "properties": {
+                "from": {
+                  "type": "ISO date string",
+                  "description": "From date of start date range for the education entity."
+                },
+                "to": {
+                  "type": "ISO date string",
+                  "description": "To date of start date range for the education entity."
+                }
+              }
             },
-            "toDate": {
-              "type": "ISO date string",
-              "description": "End of date range for the education entity."
+            "end": {
+              "type": "object",
+              "description": "The end date of the education entity.",
+              "properties": {
+                "from": {
+                  "type": "ISO date string",
+                  "description": "From date of end date range for the education entity."
+                },
+                "to": {
+                  "type": "ISO date string",
+                  "description": "To date of end date range for the education entity."
+                }
+              }
             }
           }
         }
