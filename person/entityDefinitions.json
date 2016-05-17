@@ -1,6 +1,26 @@
 {
   "anyOf": [
     {
+      "name": "id",
+      "properties": {
+        "entity": {
+          "type": "string",
+          "enum": ["id"],
+          "description": "Name of the entity to be queried."
+        },
+        "criteria": {
+          "type": "object",
+          "description": "Specific criteria for the id entity.",
+          "properties": {
+            "value": {
+              "type": "string",
+              "description": "Profile ID."
+            }
+          }
+        }
+      }
+    },
+    {
       "name": "experience",
       "properties": {
         "entity": {
