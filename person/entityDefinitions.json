@@ -15,6 +15,14 @@
             "value": {
               "type": "string",
               "description": "Profile ID."
+            },
+            "exclude": {
+              "type": "array",
+              "description": "An array of profile IDs to be excluded from query results.",
+              "items": {
+                "type": "string",
+                "description": "A profile ID to be excluded from query results."
+              }
             }
           }
         }
@@ -67,6 +75,10 @@
                   "description": "To date of end date range for the experience entity."
                 }
               }
+            },
+            "exists": {
+              "type": "boolean",
+              "description": "'true' to only return profiles that have this entity."
             }
           }
         }
@@ -115,6 +127,10 @@
                   "description": "To date of end date range for the education entity."
                 }
               }
+            },
+            "exists": {
+              "type": "boolean",
+              "description": "'true' to only return profiles that have this entity."
             }
           }
         }

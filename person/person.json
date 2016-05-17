@@ -42,20 +42,7 @@
           },
           "additionalProperties": false
         },
-        { "$ref": "entityDefinitions.json#" },
-        {
-          "name": "excludeIDs",
-          "properties": {
-            "excludeIds": {
-              "type": "array",
-              "description": "An array of profile IDs to be excluded from query results.",
-              "items": {
-                "type": "string",
-                "description": "A profile ID to be excluded from query results."
-              }
-            }
-          }
-        }
+        { "$ref": "entityDefinitions.json#" }
       ]
     }
   }
