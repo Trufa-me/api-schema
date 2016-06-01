@@ -3,7 +3,6 @@
   "title": "StepWeb API DSL - Person",
   "description": "A DSL definition of StepWeb API's Person endpoint using JSON Schema",
   "type": "object",
-  "required": ["schemaVersion", "query"],
   "properties": {
     "schemaVersion": {
       "type": "string",
@@ -25,24 +24,166 @@
       "type": "object",
       "description": "Root of query to be searched.",
       "anyOf": [
+        { "$ref": "#/definitions/compoundQuery" },
+        { "$ref": "#/definitions/entityDefinitions" }
+      ]
+    }
+  },
+  "required": ["schemaVersion", "query"],
+  "definitions": {
+    "compoundQuery": {
+      "patternProperties": {
+        "^(AND|OR)$": {
+          "type": "array",
+          "description": "An array of entityDefinition or compoundQuery objects. Items can be nested compoundQuery objects.",
+          "items": {
+            "anyOf": [
+              { "$ref": "#/definitions/compoundQuery" },
+              { "$ref": "#/definitions/entityDefinitions" }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "entityDefinitions": {
+      "anyOf": [
         {
-          "name": "compoundQuery",
-          "id": "compoundQuery",
-          "patternProperties": {
-            "^(AND|OR)$": {
-              "type": "array",
-              "description": "An array of entityQuery or compoundQuery objects. Items can be nested compoundQuery objects.",
-              "items": {
-                "anyOf": [
-                  { "$ref": "#/compoundQuery" },
-                  { "$ref": "entityDefinitions.json#" }
-                ]
+          "name": "id",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["id"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the id entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Profile ID."
+                },
+                "exclude": {
+                  "type": "array",
+                  "description": "An array of profile IDs to be excluded from query results.",
+                  "items": {
+                    "type": "string",
+                    "description": "A profile ID to be excluded from query results."
+                  }
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
-        { "$ref": "entityDefinitions.json#" }
+        {
+          "name": "experience",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["experience"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the experience entity.",
+              "properties": {
+                "company": {
+                  "type": "string",
+                  "description": "Company name."
+                },
+                "role": {
+                  "type": "string",
+                  "description": "A current or previous job title."
+                },
+                "start": {
+                  "type": "object",
+                  "description": "The start date of the experience entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of start date range for the experience entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of start date range for the experience entity. ISO date string."
+                    }
+                  }
+                },
+                "end": {
+                  "type": "object",
+                  "description": "The end date of the experience entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of end date range for the experience entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of end date range for the experience entity. ISO date string."
+                    }
+                  }
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "education",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["education"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the education entity.",
+              "properties": {
+                "establishment": {
+                  "type": "string",
+                  "description": "Educational establishment name."
+                },
+                "start": {
+                  "type": "object",
+                  "description": "The start date of the education entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of start date range for the education entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of start date range for the education entity. ISO date string."
+                    }
+                  }
+                },
+                "end": {
+                  "type": "object",
+                  "description": "The end date of the education entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of end date range for the education entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of end date range for the education entity. ISO date string."
+                    }
+                  }
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }
