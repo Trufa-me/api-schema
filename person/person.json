@@ -62,7 +62,7 @@
               "properties": {
                 "value": {
                   "type": "string",
-                  "description": "Profile ID."
+                  "description": "The unique identifier for an instance of a person."
                 },
                 "exclude": {
                   "type": "array",
@@ -71,6 +71,106 @@
                     "type": "string",
                     "description": "A profile ID to be excluded from query results."
                   }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "country_code",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["country_code"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the country_code entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "A code identifying a country."
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "education",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["education"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the education entity.",
+              "properties": {
+                "establishment": {
+                  "type": "string",
+                  "description": "Educational establishment name."
+                },
+                "start": {
+                  "type": "object",
+                  "description": "The start date of the education entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of start date range for the education entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of start date range for the education entity. ISO date string."
+                    }
+                  }
+                },
+                "end": {
+                  "type": "object",
+                  "description": "The end date of the education entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of end date range for the education entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of end date range for the education entity. ISO date string."
+                    }
+                  }
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "email",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["email"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the email entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Email address."
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
                 }
               }
             }
@@ -133,48 +233,228 @@
           }
         },
         {
-          "name": "education",
+          "name": "group",
           "properties": {
             "entity": {
               "type": "string",
-              "enum": ["education"],
+              "enum": ["group"],
               "description": "Name of the entity to be queried."
             },
             "criteria": {
               "type": "object",
-              "description": "Specific criteria for the education entity.",
+              "description": "Specific criteria for the group entity.",
               "properties": {
-                "establishment": {
+                "value": {
                   "type": "string",
-                  "description": "Educational establishment name."
+                  "description": "Name of a group."
                 },
-                "start": {
-                  "type": "object",
-                  "description": "The start date of the education entity.",
-                  "properties": {
-                    "from": {
-                      "type": "string",
-                      "description": "From date of start date range for the education entity. ISO date string."
-                    },
-                    "to": {
-                      "type": "string",
-                      "description": "To date of start date range for the education entity. ISO date string."
-                    }
-                  }
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "headline",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["headline"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the headline entity.",
+              "properties": {
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "industry",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["industry"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the industry entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "An industry or market sector."
                 },
-                "end": {
-                  "type": "object",
-                  "description": "The end date of the education entity.",
-                  "properties": {
-                    "from": {
-                      "type": "string",
-                      "description": "From date of end date range for the education entity. ISO date string."
-                    },
-                    "to": {
-                      "type": "string",
-                      "description": "To date of end date range for the education entity. ISO date string."
-                    }
-                  }
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "location",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["location"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the location entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Any location text such as city, town, etc."
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "name",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["name"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the name entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Any part of the name such as given, family or full name."
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "network",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["network"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the network entity.",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of a network."
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Identifier of the person in the named network."
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "network_count",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["network_count"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the network_count entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Minimum number of networks required."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "phone",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["phone"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the phone entity.",
+              "properties": {
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "skill",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["skill"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the skill entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Skill held by a person."
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "url",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["url"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the url entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "A network specific URI in the following format: linkedin:http://uk.linkedin.com/pub/joe-bloggs/43/bb6/427."
                 },
                 "exists": {
                   "type": "boolean",
