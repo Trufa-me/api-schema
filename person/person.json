@@ -316,6 +316,20 @@
                   "type": "string",
                   "description": "Any location text such as city, town, etc."
                 },
+                "geographic": {
+                  "type": "object",
+                  "description": "The geo specifics of the location entity.",
+                  "properties": {
+                    "point": {
+                      "type": "string",
+                      "description": "The latitude and longitude of the location in 'lat,lon' or geohash form"
+                    },
+                    "distance": {
+                      "type": "string",
+                      "description": "The radius of the distance from the defined point, such as 1mi, or 1km "
+                    }
+                  }
+                },
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
