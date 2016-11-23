@@ -486,12 +486,32 @@
                   "description": "The frequency of the remuneration entity."
                 },
                 "lower": {
-                  "type": "integer",
-                  "description": "The lower amount of the remuneration entity."
+                  "type": "object",
+                  "description": "The lower amount of the remuneration entity.",
+                  "properties": {
+                    "from": {
+                      "type": "integer",
+                      "description": "From amount of lower amount range for the remuneration entity."
+                    },
+                    "to": {
+                      "type": "integer",
+                      "description": "To amount of lower amount range for the remuneration entity."
+                    }
+                  }
                 },
                 "upper": {
-                  "type": "integer",
-                  "description": "The upper amount of the remuneration entity."
+                  "type": "object",
+                  "description": "The upper amount of the remuneration entity.",
+                  "properties": {
+                    "from": {
+                      "type": "integer",
+                      "description": "From amount of upper amount range for the remuneration entity."
+                    },
+                    "to": {
+                      "type": "integer",
+                      "description": "To amount of upper amount range for the remuneration entity."
+                    }
+                  }
                 },
                 "aspiration": {
                   "type": "object",
