@@ -20,6 +20,25 @@
       "type": "boolean",
       "description": "'false' (default) to return summary profiles, 'true' to return complete profiles."
     },
+    "sort": {
+      "type": "array",
+      "description": "list of fields to sort on, ordered in sort priority",
+      "items": {
+        "type": "object",
+        "description": "field to sort on, with sort direction",
+        "properties" : {
+          "value": {
+            "type": "string",
+            "description": "The field name to sort on."
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["asc","desc"],
+            "description": "The direction to sort, 'desc' by default"
+          }
+        }
+      }
+    },
     "query": {
       "type": "object",
       "description": "Root of query to be searched.",
