@@ -33,8 +33,8 @@
           },
           "direction": {
             "type": "string",
-            "enum": ["asc","desc"],
-            "description": "The direction to sort, 'desc' by default."
+            "enum": ["ASC","DESC"],
+            "description": "The direction to sort, 'DESC' by default."
           }
         }
       }
