@@ -39,16 +39,29 @@
         }
       }
     },
-    "query": {
-      "type": "object",
-      "description": "Root of query to be searched.",
-      "anyOf": [
-        { "$ref": "#/definitions/compoundQuery" },
-        { "$ref": "#/definitions/entityDefinitions" }
-      ]
-    }
+    "oneOf": [
+      {
+        "query": {
+          "type": "object",
+          "description": "Root of query to be searched.",
+          "anyOf": [
+            { "$ref": "#/definitions/compoundQuery" },
+            { "$ref": "#/definitions/entityDefinitions" }
+          ]
+        }
+      },
+      {
+        "matchQuery": {
+          "type": "object",
+          "description": "A fixed structured query for a given search/match algorithm",
+          "oneOf": [
+            { "$ref": "#/definitions/linkedinMatchQuery" }
+          ]
+        }
+      }
+    ]
   },
-  "required": ["schemaVersion", "query"],
+  "required": ["schemaVersion"],
   "definitions": {
     "compoundQuery": {
       "patternProperties": {
@@ -595,16 +608,53 @@
     },
     "aspirationDefinition": {
       "type": "object",
-      "description": "Profiles that have this entity as an aspiration",
+      "description": "Profiles that have this entity as an aspiration.",
       "properties": {
         "filter": {
           "type": "string",
           "enum": ["INCLUSIVE","EXCLUSIVE"],
-          "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
+          "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not."
         },
         "source": {
           "type": "string",
-          "description": "The asset network source of the aspiration entity"
+          "description": "The asset network source of the aspiration entity."
+        }
+      }
+    },
+    "linkedinMatchQuery": {
+      "type": "object",
+      "description": "LinkedIn match query",
+      "properties": {
+        "matchType": {
+          "type": "string",
+          "enum": ["linkedin"],
+          "description": "The match type to be used."
+        },
+        "criteria": {
+          "type": "object",
+          "description": "Specific criteria for the LinkedIn match query.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The profile full name."
+            },
+            "company": {
+              "type": "array",
+              "description": "An array of profile experience company names.",
+              "items": {
+                "type": "string",
+                "description": "A profile experience company name."
+              }
+            },
+            "establishment": {
+              "type": "array",
+              "description": "An array of profile education establishment names.",
+              "items": {
+                "type": "string",
+                "description": "A profile education establishment name."
+              }
+            }
+          }
         }
       }
     }
