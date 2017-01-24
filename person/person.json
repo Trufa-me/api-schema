@@ -248,19 +248,7 @@
                   "description": "'true' to only return profiles that have this entity."
                 },
                 "aspiration": {
-                  "type": "object",
-                  "description": "Profiles that have this entity as an aspiration",
-                  "properties": {
-                    "filter": {
-                      "type": "string",
-                      "enum": ["INCLUSIVE","EXCLUSIVE"],
-                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
-                    },
-                    "source": {
-                      "type": "string",
-                      "description": "The asset network source of the aspiration entity"
-                    }
-                  }
+                  "$ref": "#/definitions/aspirationDefinition"
                 }
               }
             }
@@ -369,19 +357,7 @@
                   "description": "'true' to only return profiles that have this entity."
                 },
                 "aspiration": {
-                  "type": "object",
-                  "description": "Profiles that have this entity as an aspiration",
-                  "properties": {
-                    "filter": {
-                      "type": "string",
-                      "enum": ["INCLUSIVE","EXCLUSIVE"],
-                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
-                    },
-                    "source": {
-                      "type": "string",
-                      "description": "The asset network source of the aspiration entity"
-                    }
-                  }
+                  "$ref": "#/definitions/aspirationDefinition"
                 }
               }
             }
@@ -530,19 +506,7 @@
                   }
                 },
                 "aspiration": {
-                  "type": "object",
-                  "description": "Profiles that have this entity as an aspiration",
-                  "properties": {
-                    "filter": {
-                      "type": "string",
-                      "enum": ["INCLUSIVE","EXCLUSIVE"],
-                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
-                    },
-                    "source": {
-                      "type": "string",
-                      "description": "The asset network source of the aspiration entity"
-                    }
-                  }
+                  "$ref": "#/definitions/aspirationDefinition"
                 }
               }
             }
@@ -597,19 +561,7 @@
                   "description": "'true' to only return profiles that have this entity."
                 },
                 "aspiration": {
-                  "type": "object",
-                  "description": "Profiles that have this entity as an aspiration",
-                  "properties": {
-                    "filter": {
-                      "type": "string",
-                      "enum": ["INCLUSIVE","EXCLUSIVE"],
-                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
-                    },
-                    "source": {
-                      "type": "string",
-                      "description": "The asset network source of the aspiration entity"
-                    }
-                  }
+                  "$ref": "#/definitions/aspirationDefinition"
                 }
               }
             }
@@ -640,6 +592,21 @@
           }
         }
       ]
+    },
+    "aspirationDefinition": {
+      "type": "object",
+      "description": "Profiles that have this entity as an aspiration",
+      "properties": {
+        "filter": {
+          "type": "string",
+          "enum": ["INCLUSIVE","EXCLUSIVE"],
+          "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
+        },
+        "source": {
+          "type": "string",
+          "description": "The asset network source of the aspiration entity"
+        }
+      }
     }
   }
 }
