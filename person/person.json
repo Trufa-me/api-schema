@@ -246,6 +246,21 @@
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "aspiration": {
+                  "type": "object",
+                  "description": "Profiles that have this entity as an aspiration",
+                  "properties": {
+                    "filter": {
+                      "type": "string",
+                      "enum": ["INCLUSIVE","EXCLUSIVE"],
+                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "The asset network source of the aspiration entity"
+                    }
+                  }
                 }
               }
             }
@@ -352,6 +367,21 @@
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "aspiration": {
+                  "type": "object",
+                  "description": "Profiles that have this entity as an aspiration",
+                  "properties": {
+                    "filter": {
+                      "type": "string",
+                      "enum": ["INCLUSIVE","EXCLUSIVE"],
+                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "The asset network source of the aspiration entity"
+                    }
+                  }
                 }
               }
             }
@@ -450,6 +480,75 @@
           }
         },
         {
+          "name": "remuneration",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["remuneration"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the remuneration entity.",
+              "properties": {
+                "currency": {
+                  "type": "string",
+                  "enum": ["GBP","EUR","USD"],
+                  "description": "The currency of the remuneration entity."
+                },
+                "frequency": {
+                  "type": "string",
+                  "enum": ["year","month","week","day","hour"],
+                  "description": "The frequency of the remuneration entity."
+                },
+                "lower": {
+                  "type": "object",
+                  "description": "The lower amount of the remuneration entity.",
+                  "properties": {
+                    "from": {
+                      "type": "integer",
+                      "description": "From amount of lower amount range for the remuneration entity."
+                    },
+                    "to": {
+                      "type": "integer",
+                      "description": "To amount of lower amount range for the remuneration entity."
+                    }
+                  }
+                },
+                "upper": {
+                  "type": "object",
+                  "description": "The upper amount of the remuneration entity.",
+                  "properties": {
+                    "from": {
+                      "type": "integer",
+                      "description": "From amount of upper amount range for the remuneration entity."
+                    },
+                    "to": {
+                      "type": "integer",
+                      "description": "To amount of upper amount range for the remuneration entity."
+                    }
+                  }
+                },
+                "aspiration": {
+                  "type": "object",
+                  "description": "Profiles that have this entity as an aspiration",
+                  "properties": {
+                    "filter": {
+                      "type": "string",
+                      "enum": ["INCLUSIVE","EXCLUSIVE"],
+                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "The asset network source of the aspiration entity"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
           "name": "skill",
           "properties": {
             "entity": {
@@ -465,9 +564,52 @@
                   "type": "string",
                   "description": "Skill held by a person."
                 },
+                "start": {
+                  "type": "object",
+                  "description": "The start date of the skill entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of start date range for the skill entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of start date range for the skill entity. ISO date string."
+                    }
+                  }
+                },
+                "end": {
+                  "type": "object",
+                  "description": "The end date of the skill entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of end date range for the skill entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of end date range for the skill entity. ISO date string."
+                    }
+                  }
+                },
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "aspiration": {
+                  "type": "object",
+                  "description": "Profiles that have this entity as an aspiration",
+                  "properties": {
+                    "filter": {
+                      "type": "string",
+                      "enum": ["INCLUSIVE","EXCLUSIVE"],
+                      "description": "'EXCLUSIVE' returns only aspirational profiles, 'INCLUSIVE' returns either aspiration or not"
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "The asset network source of the aspiration entity"
+                    }
+                  }
                 }
               }
             }
