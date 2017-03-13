@@ -96,6 +96,44 @@
           }
         },
         {
+          "name": "activity",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "enum": ["activity"],
+              "description": "Name of the entity to be queried."
+            },
+            "criteria": {
+              "type": "object",
+              "description": "Specific criteria for the activity entity.",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Classifications of an activity."
+                },
+                "date": {
+                  "type": "object",
+                  "description": "The date of the activity entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of date range for the activity entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of date range for the activity entity. ISO date string."
+                    }
+                  }
+                },
+                "exists": {
+                  "type": "boolean",
+                  "description": "'true' to only return profiles that have this entity."
+                }
+              }
+            }
+          }
+        },
+        {
           "name": "country_code",
           "properties": {
             "entity": {
