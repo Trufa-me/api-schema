@@ -107,13 +107,27 @@
               "type": "object",
               "description": "Specific criteria for the activity entity.",
               "properties": {
-                "value": {
+                "network": {
                   "type": "string",
-                  "description": "Classifications of an activity."
+                  "description": "Name of a network."
                 },
-                "date": {
+                "updated": {
                   "type": "object",
-                  "description": "The date of the activity entity.",
+                  "description": "The date of an updated activity entity.",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "description": "From date of date range for the activity entity. ISO date string."
+                    },
+                    "to": {
+                      "type": "string",
+                      "description": "To date of date range for the activity entity. ISO date string."
+                    }
+                  }
+                },
+                "used": {
+                  "type": "object",
+                  "description": "The date of a used activity entity.",
                   "properties": {
                     "from": {
                       "type": "string",
@@ -128,6 +142,11 @@
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "filter": {
+                  "type": "string",
+                  "enum": ["LAST","ANY"],
+                  "description": "'LAST' indicates only last updated/used activity, 'ANY' indicates any updated/used activity. Default is 'LAST'."
                 }
               }
             }
