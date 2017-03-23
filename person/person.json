@@ -127,7 +127,8 @@
                 },
                 "type": {
                   "type": "string",
-                  "description": "The type of activity to be queried: used/updated.  Default is either type."
+                  "enum": ["used","updated"],
+                  "description": "The type of activity to be queried. If type is not specified, both will be included."
                 },
                 "exists": {
                   "type": "boolean",
