@@ -1,9 +1,9 @@
 # api-schema
 A DSL definition of StepWeb API using JSON Schema.
 
-##Person
+## Person
 
-###Properties
+### Properties
 * __start _(integer)___ - Starting index to offset results from.
 * __count _(integer)___ - Maximum number of results to return.
 * __expand _(boolean)___ - `false` (default) returns summary profiles, `true` returns complete profiles.
@@ -11,7 +11,7 @@ A DSL definition of StepWeb API using JSON Schema.
 
 ### Query Examples
 
-####Basic Leaf Query
+#### Basic Leaf Query
 ```json
 {
   "start": 0,
@@ -31,7 +31,7 @@ A DSL definition of StepWeb API using JSON Schema.
 }
 ```
 
-####Basic 'Has Field' Query
+#### Basic 'Has Field' Query
 ```json
 {
   "start": 0,
@@ -45,7 +45,7 @@ A DSL definition of StepWeb API using JSON Schema.
 }
 ```
 
-####Basic AND Query
+#### Basic AND Query
 ```json
 {
   "start": 0,
@@ -75,7 +75,7 @@ A DSL definition of StepWeb API using JSON Schema.
 }
 ```
 
-####Basic OR Query
+#### Basic OR Query
 ```json
 {
   "start": 0,
@@ -99,7 +99,7 @@ A DSL definition of StepWeb API using JSON Schema.
 }
 ```
 
-####Nested Query
+#### Nested Query
 ```json
 {
   "start": 0,
@@ -139,7 +139,7 @@ A DSL definition of StepWeb API using JSON Schema.
 }
 ```
 
-####Date Range Query
+#### Date Range Query
 ```json
 {
   "start": 0,
