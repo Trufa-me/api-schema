@@ -166,6 +166,10 @@
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "boost": {
+                  "type": "boolean",
+                  "description": "'true' to boost profiles containing the values in this entity. Default: false."
                 }
               }
             }
@@ -247,6 +251,10 @@
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
                 },
+                "boost": {
+                  "type": "boolean",
+                  "description": "'true' to boost profiles containing the values in this entity. Default: false."
+                },
                 "aspiration": {
                   "$ref": "#/definitions/aspirationDefinition"
                 }
@@ -317,6 +325,10 @@
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "boost": {
+                  "type": "boolean",
+                  "description": "'true' to boost profiles containing the values in this entity. Default: false."
                 }
               }
             }
@@ -355,6 +367,10 @@
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "boost": {
+                  "type": "boolean",
+                  "description": "'true' to boost profiles containing the values in this entity. Default: false."
                 },
                 "aspiration": {
                   "$ref": "#/definitions/aspirationDefinition"
@@ -559,6 +575,10 @@
                 "exists": {
                   "type": "boolean",
                   "description": "'true' to only return profiles that have this entity."
+                },
+                "boost": {
+                  "type": "boolean",
+                  "description": "'true' to boost profiles containing the values in this entity. Default: false."
                 },
                 "aspiration": {
                   "$ref": "#/definitions/aspirationDefinition"
